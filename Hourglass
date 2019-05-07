@@ -1,0 +1,50 @@
+//Created by: Khoa Le
+//This program creates an hourglass out of asterisks.
+
+import java.util.*;
+
+public class Hourglass {
+
+	public static void main(String[] args ) {
+		
+		int input = 0;
+		int asteriskSpaces = 0;
+		String result_string = "";
+		System.out.println("Enter a number to start the hourglass.");
+		Scanner userInput = new Scanner(System.in);
+		input = userInput.nextInt();
+		
+		result_string = recursivePattern(input, asteriskSpaces);
+		System.out.println(result_string);
+		
+	}
+	
+	public static String recursivePattern(int input, int asteriskSpaces) {
+		
+		String nStr = "";
+		String result = "";
+		Integer i;
+		
+		for (i = 0; i < asteriskSpaces; i++) {
+			nStr = nStr + " ";
+			
+		}
+		
+		for (i = 0; i < input; i++) {
+			nStr = nStr + "* ";
+			
+		}
+		
+		if (input == 1) {
+			result = nStr + "\n" + nStr;
+			
+		} else {
+			result = nStr + "\n" + recursivePattern(input - 1, asteriskSpaces + 1) + "\n" + nStr;
+			
+		}
+		
+		return result;
+		
+	}
+	
+}
