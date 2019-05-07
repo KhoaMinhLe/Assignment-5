@@ -1,0 +1,38 @@
+//Created by: Khoa Le
+//This program is integer pattern.
+
+import java.util.*;
+
+public class IntegerPattern{
+	
+	public static void main(String[]args ) {
+		
+		int input = 0;
+		String result_string = "";
+		System.out.println("Enter a number to start the integer pattern.");
+		Scanner userInput = new Scanner(System.in);
+		input = userInput.nextInt();
+		
+		result_string = recursivePattern(input);
+		System.out.println(result_string);
+		
+	}
+	
+	public static String recursivePattern(int input) {
+		
+		String nStr = Integer.toString(input);
+		String result;
+		
+		if (input == 1) {
+			result = nStr;
+			
+		} else {
+			result = recursivePattern(input - 1) + " " + nStr + " " + recursivePattern(input - 1);
+			
+		}
+		
+		return result;
+		
+	}
+	
+}
